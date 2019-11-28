@@ -1,14 +1,69 @@
 {{#> base }}
-
-{{> header home=this }}
-
-<main role="main" class="container" id='page-cont'>
-
-  {{#> welcome title="Home Page" }}
-  <p class="lead"><i class="fas fa-rocket"></i> Use this <a href="/about">document</a> as a way to quickly start any new
-    project.</p>
-  {{/welcome}}
-
+<main role="main" class="home-page" id='page-cont'>
+  {{#each htmlWebpackPlugin.options.data}}
+  <div class="d-none table-cont-{{routeNo}}  table-cont" data-type='{{type}}'>
+    <div class="ph-navbar">
+      <div class="ph-navbar-line">
+        <span class="ph-navbar__title">
+          线路: {{routeNo}}路&emsp;方向:
+        </span>
+        {{#withLast loopStations}}
+        <span class="ph-navbar__title js-direction-station">
+          {{name}}
+        </span>
+        {{/withLast}}
+        {{#withLast downStations}}
+        <span class="ph-navbar__title js-direction-station" data-down-text='{{name}}'
+          data-up-text='{{#withLast ../upStations}}{{name}}{{/withLast}}'>
+          <span>{{name}}</span>
+        </span>
+        {{/withLast}}
+      </div>
+      <div class="ph-navbar-line">
+        <img src="../assets/images/icon-info.png" alt="icon" class="ph-navbar__desc__img">
+        <span class="ph-navbar__desc">
+          因路况关系，请至少提前3分钟候车
+        </span>
+      </div>
+    </div>
+    <div class="container hp-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>站点</th>
+            <th>首班发车时间</th>
+            <th>末班发车时间</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each downStations}}
+          <tr class="data-down-stations">
+            <td>{{name}}</td>
+            <td>{{start}}</td>
+            <td>{{end}}</td>
+          </tr>
+          {{/each}}
+          {{#each upStations}}
+          <tr class="data-up-stations d-none">
+            <td>{{name}}</td>
+            <td>{{start}}</td>
+            <td>{{end}}</td>
+          </tr>
+          {{/each}}
+          {{#each loopStations}}
+          <tr class="data-loop-stations">
+            <td>{{name}}</td>
+            <td>{{start}}</td>
+            <td>{{end}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {{/each}}
+  <div class='jg-toggle-btn ph-toggle-btn'>
+    反向时刻表
+  </div>
 </main>
-
 {{/ base }}
