@@ -1,5 +1,18 @@
 // type 0 list
 const data = [
+
+   // placeholder
+   {
+    routeNo: "00",
+    type: 0,
+    downStations: [
+      { name: "暂无", start: "/", end: "/" },
+    ],
+    upStations: [
+      { name: "暂无", start: "/", end: "/" },
+    ]
+  },
+
   // 线路1
   {
     routeNo: "1",

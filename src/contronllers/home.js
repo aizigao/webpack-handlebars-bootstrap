@@ -9,7 +9,7 @@ export default class HomeController extends BaseController {
   }
   created () {
     const qsObj = Utils.getUrlParam();
-    const targetRouteNo = qsObj.routeName || qsObj.routename;
+    const targetRouteNo = qsObj.routeName || qsObj.routename || '00';
     this.targetRouteNo = targetRouteNo;
 
     this.$activeTable = this.$view.find(`.table-cont-${this.targetRouteNo}`);

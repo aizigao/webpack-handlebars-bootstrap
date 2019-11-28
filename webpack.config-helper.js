@@ -102,7 +102,6 @@ module.exports = options => {
   };
 
   if (options.isProduction) {
-    webpackConfig.entry = ["./src/app.js"];
 
     webpackConfig.plugins.push(
       new MiniCssExtractPlugin({
@@ -121,13 +120,16 @@ module.exports = options => {
     webpackConfig.module.rules.push(
       {
         test: /\.scss$/i,
-        use: ["css-loader",
-          { loader: MiniCssExtractPlugin.loader, },
+        use: [
+          { loader: MiniCssExtractPlugin.loader },
+          "css-loader",
           "sass-loader"]
       },
       {
         test: /\.css$/i,
-        use: ["css-loader", { loader: MiniCssExtractPlugin.loader }]
+        use: [
+          { loader: MiniCssExtractPlugin.loader },
+          "css-loader"]
       },
     );
   } else {

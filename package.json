@@ -4,8 +4,8 @@
   "description": "A clean Webpack 4 + Bootstrap 4 + Handlebars frontend template.",
   "scripts": {
     "start": "nodemon --exec yarn watch --watch src/pages.js",
-    "build": "webpack --config webpack-prod.config.js -p --colors --optimize-minimize",
-    "watch": "webpack-dev-server --config webpack-dev.config.js --watch --colors -d"
+    "build": "webpack --config webpack-prod.config.js  --colors --optimize-minimize",
+    "watch": "webpack-dev-server --config webpack-dev.config.js --watch --colors -d -p"
   },
   "repository": {
     "type": "git",
