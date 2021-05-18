@@ -1,7 +1,3 @@
-<a href="https://raw.githubusercontent.com/statickidz/webpack-handlebars-bootstrap/master/LICENSE">
-  <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License" />
-</a>
-
 # Webpack 4 + Bootstrap 4 + Handlebars
 
 

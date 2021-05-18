@@ -4,12 +4,13 @@
   "description": "A clean Webpack 4 + Bootstrap 4 + Handlebars frontend template.",
   "scripts": {
     "start": "nodemon --exec yarn watch --watch src/pages.js",
-    "build": "webpack --config webpack-prod.config.js --colors --optimize-minimize",
-    "watch": "webpack-dev-server --config webpack-dev.config.js --watch --colors -d"
+    "build": "webpack --config webpack-prod.config.js  --colors --optimize-minimize -p",
+    "build:active": "shx rm -r ../single/hbs && cross-env TO_ACTIVE=true webpack --config webpack-prod.config.js  --colors --optimize-minimize -p",
+    "watch": "webpack-dev-server --config webpack-dev.config.js --watch --colors -d "
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/statickidz/webpack-handlebars-bootstrap.git"
+    "url": "git+https://github.com/aizigao/webpack-handlebars-bootstrap.git"
   },
   "keywords": [
     "frontend",
@@ -47,17 +48,19 @@
     "browser-sync-webpack-plugin": "^2.2.2",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.4",
+    "cross-env": "^6.0.3",
     "css-loader": "^1.0.1",
     "eslint": "^4.19.1",
     "eslint-loader": "^2.0.0",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "handlebars": "^4.0.12",
     "handlebars-loader": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.9.4",
     "nodemon": "^1.18.5",
     "sass-loader": "^7.1.0",
+    "shx": "^0.3.2",
     "style-loader": "^0.23.1",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2",
@@ -66,6 +69,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.4.2",
     "bootstrap": "^4.1.3",
+    "handlebars-utils": "^1.0.6",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.4"
   }
